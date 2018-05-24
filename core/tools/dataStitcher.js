@@ -206,7 +206,8 @@ Stitcher.prototype.checkExchangeTrades = function(since, next) {
 }
 
 Stitcher.prototype.seedLocalData = function(from, to, next) {
-  this.reader.get(from, to, 'full', function(err, rows) {
+    from = Math.floor(from / 14400) * 14400
+    this.reader.get(from , to, 'full', function(err, rows) {
     rows = _.map(rows, row => {
       row.start = moment.unix(row.start);
       return row;
