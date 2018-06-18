@@ -82,13 +82,12 @@ Stitcher.prototype.prepareHistoricalData = function(done) {
       var idealExchangeStartTimeTS = localData.to - secondsOverlap;
       var idealExchangeStartTime = moment.unix(idealExchangeStartTimeTS).utc();
 
-      // already set the
-      util.setConfigProperty(
-        'tradingAdvisor',
-        'firstFetchSince',
-        idealExchangeStartTimeTS
-      );
     }
+    util.setConfigProperty(
+      'tradingAdvisor',
+      'firstFetchSince',
+      idealExchangeStartTimeTS
+    );
 
     // Limit the history Gekko can try to get from the exchange.
     var minutesAgo = endTime.diff(idealExchangeStartTime, 'minutes');
