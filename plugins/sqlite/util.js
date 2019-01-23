@@ -2,8 +2,8 @@ var config = require('../../core/util.js').getConfig();
 
 var watch = config.watch;
 var settings = {
-  exchange: watch.exchange,
-  pair: [watch.currency, watch.asset],
+  exchange: 'bitfinex',
+  pair: ['USD', 'BTC'],
   historyPath: config.sqlite.dataDirectory
 }
 
